@@ -603,8 +603,8 @@ def get_chunks(diffset, filediff, interfilediff, force_interdiff,
         old, new = new, old
 
     encoding = diffset.repository.encoding or 'iso-8859-15'
-    old = convert_to_utf8(old, encoding)
-    new = convert_to_utf8(new, encoding)
+    old = convert_to_utf8(old, encoding).expandtabs(4)
+    new = convert_to_utf8(new, encoding).expandtabs(4)
 
     # Normalize the input so that if there isn't a trailing newline, we add
     # it.
